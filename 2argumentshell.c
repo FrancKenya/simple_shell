@@ -5,13 +5,14 @@
 #include <sys/wait.h>
 
 #define MAX_C_LEN 100
+
 /**
 * main - writes a UNIX command line interpreter.
 * @argc: argument count
 * @argv: argument vector
 * description: handles command lines with arguments using strtok()
-* to create an array of arrguments and execvp instead of execve to evecute
-* commands with its arguments.
+* to create an array of arrguments and execvp instead of execve to execute
+* command with its arguments.
 * Return: (0) Success
 */
 
@@ -48,7 +49,7 @@ else if (pid == 0) /* child process */
 {
 if (execvp(args[0], args) == -1) /* check for execvp command fail */
 {
-perror(argv[0]); /* print the erro */
+perror(argv[0]); /* print the error */
 exit(EXIT_FAILURE); }
 exit(EXIT_SUCCESS); } /* if not failed exit successfully */
 else
