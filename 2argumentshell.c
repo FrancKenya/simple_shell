@@ -24,11 +24,11 @@ int status, i;
 
 while (1)
 {
-printf("shell$ "); /* display prompt */
+write(STDOUT_FILENO, "shell$ ", 7); /* display prompt */
 fflush(stdout);
 if (fgets(c, MAX_C_LEN, stdin) == NULL) /* read and terminate if CTRL D */
 {
-printf("\n");
+write(STDOUT_FILENO, "\n", 1);
 exit(EXIT_SUCCESS); }
 if (c[strlen(c) - 1] == '\n') /* check for newline */
 {
