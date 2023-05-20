@@ -16,7 +16,7 @@ char *get_command_path(const char *command);
 
 int main(int __attribute__((unused)) argc, char *argv[])
 {
-char c[MAX_C_LEN], *args[MAX_C_LEN], *token, *command_path;
+char c[MAX_C_LEN], *args[MAX_C_LEN], *token;
 pid_t pid;
 int status, i;
 
@@ -24,10 +24,13 @@ while (1)
 {
 write(STDOUT_FILENO, "shell$ ", 7); /* display prompt */
 fflush(stdout);
-if (fgets(c, MAX_C_LEN, stdin) == NULL) /* read and terminate if CTRL D */
+if (fgets(c, MAX_C_LEN, stdin) == NULL)
 {
 write(STDOUT_FILENO, "\n", 1);
-exit(EXIT_SUCCESS); } /* exit built in */
+exit(EXIT_SUCCESS); }
+if (c[0] == '\n') /* check if input is empty */
+{
+continue; }
 if (c[strlen(c) - 1] == '\n') /* check for newline */
 {
 c[strlen(c) - 1] = '\0'; } /* remove new line */
@@ -40,9 +43,6 @@ token = strtok(NULL, " "); }
 args[i] = NULL;
 handle_env_builtin(args); /* called to check and handle env command */
 exit_builtin_handle(args); /* checking exit command and exiting */
-command_path = get_command_path(args[0]); /* called to handle PATH */
-if (command_path != NULL)
-{
 pid = fork();
 if (pid == -1) /* check for errors after forking */
 {
@@ -57,7 +57,7 @@ exit(EXIT_FAILURE); }
 exit(EXIT_SUCCESS); } /* if not failed exit successfully */
 else
 {
-waitpid(pid, &status, 0); }}} /* wait for child process to finish */
+waitpid(pid, &status, 0); }} /* wait for child process to finish */
 return (0); }
 /**
 * exit_builtin_handle - checks if command is 'exit' to exit
@@ -93,7 +93,7 @@ env++;
 }
 }
 /**
-* *get_command_path - handle PATH
+* get_command_path - handle PATH
 * @command: constant pointer to command string
 * Return: command path
 */
@@ -101,27 +101,35 @@ env++;
 char *get_command_path(const char *command)
 {
 char *path, *path_token, *command_path;
-const char *error_msg;
+const char *error_msg = "PATH not set\n";
+const char *error_msg2 = "Memory allocation failed\n";
 
 path = getenv("PATH");
+if (path == NULL)
+{
+write(STDERR_FILENO, error_msg, strlen(error_msg));
+return (NULL);
+}
+
 path_token = strtok(path, ":");
-command_path = malloc(MAX_PATH_LEN);
 while (path_token != NULL)
 {
+command_path =  malloc(MAX_PATH_LEN);
 if (command_path == NULL)
 {
-error_msg = "Memory allocation failed\n";
-write(STDERR_FILENO, error_msg, strlen(error_msg));
+write(STDERR_FILENO, error_msg2, strlen(error_msg2));
+return (NULL);
 }
-strcpy(command_path, path_token); /* copy the path_token */
-strcat(command_path, "/"); /* append a slash */
-strcat(command_path, command); /* append the command */
+strncpy(command_path, path_token, MAX_PATH_LEN - 1);
+strncat(command_path, "/", MAX_PATH_LEN - strlen(command_path) - 1);
+strncat(command_path, command, MAX_PATH_LEN - strlen(command_path) - 1);
 if (access(command_path, X_OK) == 0) /* check if executable */
 {
 return (command_path); /* when Command found in PATH */
 }
+free(command_path);
 path_token = strtok(NULL, ":");
 }
-free(command_path);
+write(STDERR_FILENO, "Command not found\n", 18);
 return (NULL); /* when command not found */
 }
