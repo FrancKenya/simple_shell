@@ -53,7 +53,8 @@ hsh can be invoked in two ways;
 * non-interactively:
   In this mode the shell is read input from a file
   Example:
-  > ```$ echo "/bin/ls" | ./hsh
+  ```shell
+  $ echo "/bin/ls" | ./hsh
   hsh main.c shell.c test_ls_2
   $
   $ cat test_ls_2
