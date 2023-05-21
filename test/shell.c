@@ -7,9 +7,10 @@
  */
 void handler(int signum)
 {
-	char *new = "\n#Cisfun$ ";
+	char *new = S_NAME;
 
 	(void) signum;
+	write(STDOUT_FILENO, "\n", 1);
 	write(STDOUT_FILENO, new, _strlen(new));
 }
 
@@ -112,7 +113,7 @@ void shell_1(char *exe, char **env)
 	signal(SIGINT, handler);
 	while (1)
 	{
-		sysinfo = "#cisfun$ ";
+		sysinfo = S_NAME;
 		write(STDOUT_FILENO, sysinfo, _strlen(sysinfo));
 		char_count = getline(&prompt, &char_count, stdin);
 		if ((int) char_count == -1)

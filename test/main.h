@@ -20,6 +20,8 @@ typedef struct path
 	struct path *next;
 } path;
 
+#define S_NAME "#cisfun ";
+
 char *_get_env(const char *name, char **environ);
 int num_variables(void);
 void print_env(void);
