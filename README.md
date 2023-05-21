@@ -38,12 +38,12 @@ Usage: `hsh [filename]`
 To use hsh, compile all the .c files in the repository and execute the resulting executable.
 
 hsh can be invoked in two ways;
-* interactively:
+* **Interactively**:
   if hsh is invoked interactively then the shell is ready to accept input from the standard input just like `sh` command works
 
 > Example:
   > `$ [command]`
-* non-interactively:
+* **Non-interactively**:
   In this mode the shell is read input from a file
 
 > Example:
@@ -73,6 +73,23 @@ Upon receiving a command, hsh performs the following steps to process and execut
 4. Execution Environment: If the command begins with a forward slash () or a dot (.), or if the previous path resolution step successfully finds an executable file, hsh proceeds to execute the named program. Any remaining arguments are passed to the program within a separate execution environment.
 
 By following these steps, hsh effectively processes and executes commands, providing flexibility in handling both builtins and external programs.
+
+### Exit Status:
+After executing a command, hsh provides an exit status that indicates the outcome of the command. A return status of zero signifies a successful execution.
+
+For builtins, a return status of zero signifies success, while a return status of one or two indicates incorrect usage, accompanied by an appropriate error message.
+
+### Signals:
+During interactive mode, hsh ignores the Ctrl+c signal from the keyboard input, allowing uninterrupted operation. To exit the program, the user can input the end-of-file signal (Ctrl+d), indicating the intention to terminate the shell.
+
+Example:
+```shell
+	$ ./hsh
+	$ ^C
+	$ ^C
+	$ <User presses Ctrl+d>
+	```
+In the example above, the user runs the hsh shell and tries to terminate it by pressing Ctrl+c twice, but the shell ignores the signal. Finally, the user presses Ctrl+d on the third line, successfully exiting the shell.
 
 ## Authors
 |Name|Email|
