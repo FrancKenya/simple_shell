@@ -45,15 +45,15 @@ To use hsh, compile all the .c files in the repository and execute the\
 resulting executable.
 
 hsh can be invoked in two ways;
-* interactively
+* interactively:
   if hsh is invoked interactively then the shell is ready to accept input from\
   the standard input just like `sh` command works
   Example:
   > `$ [command]`
-* non-interactively
+* non-interactively:
   In this mode the shell is read input from a file
   Example:
-  ```
+  > ```
   $ echo "/bin/ls" | ./hsh
   hsh main.c shell.c test_ls_2
   $
