@@ -1,7 +1,7 @@
-#ALX simple shell project
+# ALX simple shell project
 > This repository contains source code for the simple shell project on ALX
 
-##General requirement
+## General requirement
 * Allowed editors: vi, vim, emacs
 * All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the\
 options -Wall -Werror -Wextra -pedantic -std=gnu89
@@ -17,15 +17,15 @@ and betty-doc.pl
 * You should have an AUTHORS file at the root of your repository, listing all\
 individuals having contributed content to the repository. Format, see Docker
 
-##Compilation
+## Compilation
 The code was compiled in the manner below;
 > `gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh`
 
-##Description:
+## Description:
 hsh is a straightforward interpreter for the UNIX command language. It is\
 capable of reading commands from a file or standard input and executing them.
 
-###How hsh operates:
+### How hsh operates:
 * Displays a prompt and waits for a command from the user.
 * Creates a child process to handle the command.
 * Checks for built-ins, aliases in the PATH, and local executable programs.
@@ -38,7 +38,7 @@ a status).
 
 **hsh also functions in non-interactive mode.**
 
-##Invocation:
+## Invocation:
 Usage: `hsh [filename]`
 
 To use hsh, compile all the .c files in the repository and execute the\
@@ -48,7 +48,7 @@ hsh can be invoked in two ways: interactively and non-interactively. If hsh is\
 invoked without a terminal connection to its standard input, it reads and\
 executes commands received in sequence.
 
-##Authors
+## Authors
 |Name|Email|
 |----|-----|
 |Adekunle Adetunji|Adekunleadetunjiwilson@gmail.com|
