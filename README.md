@@ -61,6 +61,19 @@ hsh can be invoked in two ways;
   $
   ```
 
+## Command Execution
+Upon receiving a command, hsh performs the following steps to process and execute it:
+
+1. Tokenization: The command is tokenized into separate words using a space (" ") as the delimiter. The first word represents the command itself, while the remaining words serve as arguments for that command.
+
+2. Builtin Execution: If the first character of the command is neither a forward slash () nor a dot (.), hsh searches for a matching shell builtin command in its list. If a builtin command with the specified name is found, hsh invokes and executes it accordingly.
+
+3. Path Resolution: In case the command does not start with a forward slash () or a dot (.), and it is not a shell builtin, hsh proceeds to search each directory specified in the PATH environmental variable. This search aims to locate an executable file with the same name as the command.
+
+4. Execution Environment: If the command begins with a forward slash () or a dot (.), or if the previous path resolution step successfully finds an executable file, hsh proceeds to execute the named program. Any remaining arguments are passed to the program within a separate execution environment.
+
+By following these steps, hsh effectively processes and executes commands, providing flexibility in handling both builtins and external programs.
+
 ## Authors
 |Name|Email|
 |----|-----|
