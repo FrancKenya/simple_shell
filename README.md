@@ -84,10 +84,10 @@ During interactive mode, hsh ignores the Ctrl+c signal from the keyboard input, 
 
 Example:
 ```shell
-	$ ./hsh
-	$ ^C
-	$ ^C
-	$ <User presses Ctrl+d>
+  $ ./hsh
+  $ ^C
+  $ ^C
+  $ <User presses Ctrl+d>
 	```
 In the example above, the user runs the hsh shell and tries to terminate it by pressing Ctrl+c twice, but the shell ignores the signal. Finally, the user presses Ctrl+d on the third line, successfully exiting the shell.
 
