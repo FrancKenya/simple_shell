@@ -5,11 +5,11 @@
  * @argv: The argument vector supplied of the command line argument
  * Return: Nill
  */
-void child_process(char **argv)
+void child_process(char *var, char **argv, char **env)
 {
 	char *error_message;
 
-	if (execve(argv[0], argv, NULL) == -1)
+	if (execve(var, argv, env) == -1)
 	{
 		error_message = "There was an error with execve\n";
 		write(STDOUT_FILENO, error_message, _strlen(error_message));
@@ -23,18 +23,19 @@ void child_process(char **argv)
  * @argv: The argument vector supplied to the command line
  * Return: Void
  */
-void create_process(char **argv)
+void create_process(char *var, char **argv, char **env)
 {
 	int i, child;
 
 	child = fork();
 	if (child == 0)
 	{
-		child_process(argv);
+		child_process(var, argv, env);
 	}
 	else
 	{
 		wait(&i);
+		free(var);
 		free_vector(argv);
 	}
 }

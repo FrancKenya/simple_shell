@@ -25,7 +25,7 @@ typedef struct path
 char *_get_env(const char *name, char **environ);
 int num_variables(void);
 void print_env(void);
-void child_process(char **path);
+void child_process(char *var, char **path, char **env);
 void shell_1(char *exe, char **env);
 char **vectorize(char *string, char *delim);
 void free_vector(char **vector);
@@ -37,7 +37,7 @@ int _strlen(const char *str);
 char *replace(char *str, char repl);
 char *_strcpy(char *dest, char *src);
 char *_strdup(char *str);
-void create_process(char **argv);
+void create_process(char *var, char **argv, char **env);
 int _strcmp(char *str1, char *str2);
 int _strncmp(const char *str1, const char *str2, int n);
 

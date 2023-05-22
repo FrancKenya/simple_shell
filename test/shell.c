@@ -86,16 +86,19 @@ void null_command(char *exe, char **argvc)
 void exec_process(char *prompt, char *exe, char **env)
 {
 	int flag;
-	char **argvc;
+	char *var, **argvc;
 	struct stat fileinfo;
 
 	argvc = vectorize(prompt, " ");
-	argvc[0] = check_path(argvc[0], env);
-	flag = stat(argvc[0], &fileinfo);
+	var = check_path(argvc[0], env);
+	flag = stat(var, &fileinfo);
 	if (flag == 0)
-		create_process(argvc);
+		create_process(var, argvc, env);
 	else
+	{
 		null_command(exe, argvc);
+		free(var);
+	}
 }
 
 /**

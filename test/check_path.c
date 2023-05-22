@@ -74,7 +74,6 @@ char *check_path(char *string, char **environ)
 	struct stat fileinfo;
 
 	str = _strdup(string);
-	free(string);
 	if (stat(str, &fileinfo) == 0)
 		return (str);
 
