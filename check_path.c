@@ -40,8 +40,9 @@ char *concat(char *dir, char *command)
 	total = com_len + dir_len + 2;
 	new_str = malloc(sizeof(char) * total);
 	if (!new_str)
+	{
 		return (NULL);
-
+	}
 	for (i = 0; i < total; i++)
 	{
 		if (i < dir_len)
