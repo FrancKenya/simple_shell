@@ -140,5 +140,4 @@ void shell_1(char *exe, char **env)
 
 	}
 	free(prompt);
-	exit(0);
 }
