@@ -127,17 +127,15 @@ void shell_1(char *exe, char **env)
 		}
 
 		prompt = replace(prompt, '\n');
-		if (_strlen(prompt) == 0)
-			continue;
-
-		if (_strcmp(prompt, "exit") == 0)
+		if (_strlen(prompt) == 0 || is_space(prompt))
 		{
-			free(prompt);
-			exit(EXIT_SUCCESS);
+			if (!isatty(STDIN_FILENO))
+				break;
+			continue;
 		}
 
-		if (is_space(prompt))
-			continue;
+		if (_strcmp(prompt, "exit") == 0)
+			break;
 
 		exec_process(prompt, exe, env);
 
