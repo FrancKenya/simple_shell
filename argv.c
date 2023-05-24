@@ -39,8 +39,9 @@ char **vectorize(char *string, char *delim)
 
 	str_dup = _strdup(string);
 	if (!str_dup)
+	{
 		return (NULL);
-
+	}
 	num_of_str = count(str_dup) + 1;
 	vector = malloc(sizeof(char *) * num_of_str);
 	if (!vector)
