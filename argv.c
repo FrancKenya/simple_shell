@@ -12,8 +12,9 @@ int count(char *str)
 
 	dup = _strdup(str);
 	if (!dup)
+	{
 		return (0);
-
+	}
 	token = strtok(dup, " ");
 	while (token)
 	{
