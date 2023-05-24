@@ -31,8 +31,9 @@ char *form_error(char *str1, char *str2)
 	total = trail_and_str2 + _strlen(not_found);
 	message = malloc(sizeof(char) * (total + 2));
 	if (!message)
+	{
 		return (NULL);
-
+	}
 	for (i = 0; i < total; i++)
 	{
 		if (i < len_str1)
