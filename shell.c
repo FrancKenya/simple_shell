@@ -109,7 +109,6 @@ void exec_process(char *prompt, char *exe, char **env)
  */
 void shell_1(char *exe, char **env)
 {
-	int i;
 	size_t char_count;
 	char *sysinfo, *prompt = NULL;
 
@@ -133,13 +132,6 @@ void shell_1(char *exe, char **env)
 
 		if (_strcmp(prompt, "exit") == 0)
 			break;
-
-		if (_strcmp(prompt, "env") == 0)
-			for (i = 0; env[i] != NULL; i++)
-			{
-				write(STDOUT_FILENO, env[i], _strlen(env[i]));
-				write(STDOUT_FILENO, "\n", 1);
-			}
 
 		exec_process(prompt, exe, env);
 

@@ -2,7 +2,9 @@
 
 /**
  * child_process - executes a new program in a child process
+ * @var: The command supplied to be executed
  * @argv: The argument vector supplied of the command line argument
+ * @env: The parent process environment variables
  * Return: Nill
  */
 void child_process(char *var, char **argv, char **env)
@@ -20,7 +22,9 @@ void child_process(char *var, char **argv, char **env)
 /**
  * create_process - execute a command supplied to the command line in a new
  * process
+ * @var: The command to be executed
  * @argv: The argument vector supplied to the command line
+ * @env: The parent process enviroment variables
  * Return: Void
  */
 void create_process(char *var, char **argv, char **env)
