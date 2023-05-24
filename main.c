@@ -12,9 +12,13 @@ int main(int ac, char **argv, char **env)
 	(void) ac;
 
 	if (isatty(0))
+	{
 		shell_1(argv[0], env);
+	}
 	else
+	{
 		shell_1(argv[0], env);
+	}
 
 	return (0);
 }
