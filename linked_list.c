@@ -14,8 +14,9 @@ path *linked_path(char *str, char *delim, path **head)
 	path *mem, *temp;
 
 	if (!str || !delim)
+	{
 		return (NULL);
-
+	}
 	dupstr = _strdup(str);
 	if (!dupstr)
 	{
