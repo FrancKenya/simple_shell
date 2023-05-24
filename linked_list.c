@@ -37,7 +37,9 @@ path *linked_path(char *str, char *delim, path **head)
 			*head = mem;
 		}
 		else
+		{
 			temp->next = mem;
+		}
 		temp = mem;
 		token = strtok(NULL, delim);
 	}
