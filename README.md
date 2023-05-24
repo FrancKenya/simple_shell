@@ -95,4 +95,4 @@ In the example above, the user runs the hsh shell and tries to terminate it by p
 |Name|Email|
 |----|-----|
 |Adekunle Adetunji|Adekunleadetunjiwilson@gmail.com|
-|Francis Waihiga|franciswaihiga@gmail.com|
+|Francis Waihiga|francisgwaihiga@gmail.com|
