@@ -123,7 +123,7 @@ void shell_1(char *exe, char **env)
 		{
 			write(STDOUT_FILENO, "\n", 1);
 			free(prompt);
-			exit(0);
+			exit(EXIT_SUCCESS);
 		}
 
 		prompt = replace(prompt, '\n');
@@ -133,7 +133,7 @@ void shell_1(char *exe, char **env)
 		if (_strcmp(prompt, "exit") == 0)
 		{
 			free(prompt);
-			exit(0);
+			exit(EXIT_SUCCESS);
 		}
 
 		exec_process(prompt, exe, env);
