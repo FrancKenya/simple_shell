@@ -18,8 +18,9 @@ path *linked_path(char *str, char *delim, path **head)
 
 	dupstr = _strdup(str);
 	if (!dupstr)
+	{
 		return (NULL);
-
+	}
 	token = strtok(dupstr, delim);
 	while (token != NULL)
 	{
