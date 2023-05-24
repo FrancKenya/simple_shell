@@ -79,8 +79,9 @@ char *check_path(char *string, char **environ)
 
 	value = _get_env("PATH", environ);
 	if (!value)
+	{
 		return (NULL);
-
+	}
 	path = linked_path(value, ":", &path);
 	temp = path;
 	while (temp != NULL)
