@@ -119,7 +119,9 @@ void shell_1(char *exe, char **env)
 	{
 		sysinfo = S_NAME;
 		if (isatty(STDIN_FILENO))
+		{
 			write(STDOUT_FILENO, sysinfo, _strlen(sysinfo));
+		}
 		char_count = getline(&prompt, &char_count, stdin);
 		if ((int) char_count == -1)
 		{
