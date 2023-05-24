@@ -74,3 +74,20 @@ int _strlen(const char *str)
 
 	return (i);
 }
+
+/**
+ * is_space - checks if the argument provided is just an empty space
+ * @str: The supplied string
+ * Return: An interger value of either zero or one
+ */
+int is_space(char *str)
+{
+	int i;
+
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if (str[i] != ' ' && str[i] != '\t')
+			return (0);
+	}
+	return (1);
+}

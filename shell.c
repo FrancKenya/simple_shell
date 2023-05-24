@@ -136,6 +136,9 @@ void shell_1(char *exe, char **env)
 			exit(EXIT_SUCCESS);
 		}
 
+		if (is_space(prompt))
+			continue;
+
 		exec_process(prompt, exe, env);
 
 		if (!isatty(STDIN_FILENO))

@@ -40,5 +40,6 @@ char *_strdup(char *str);
 void create_process(char *var, char **argv, char **env);
 int _strcmp(char *str1, char *str2);
 int _strncmp(const char *str1, const char *str2, int n);
+int is_space(char *str);
 
 #endif
