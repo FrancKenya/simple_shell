@@ -36,7 +36,9 @@ char *form_error(char *str1, char *str2)
 	for (i = 0; i < total; i++)
 	{
 		if (i < len_str1)
+		{
 			message[i] = str1[i];
+		}
 		else if (i >= len_str1 && i < (str1_and_trail))
 		{
 			message[i] = trailing[j];
