@@ -131,7 +131,10 @@ void shell_1(char *exe, char **env)
 			continue;
 
 		if (_strcmp(prompt, "exit") == 0)
-			break;
+		{
+			free(prompt);
+			exit(0);
+		}
 
 		exec_process(prompt, exe, env);
 
