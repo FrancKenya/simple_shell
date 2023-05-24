@@ -56,8 +56,9 @@ void free_link(path *head)
 	path *temp;
 
 	if (!head)
+	{
 		return;
-
+	}
 	while (head)
 	{
 		temp = head;
