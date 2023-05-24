@@ -75,8 +75,9 @@ char *check_path(char *string, char **environ)
 
 	str = _strdup(string);
 	if (stat(str, &fileinfo) == 0)
+	{
 		return (str);
-
+	}
 	value = _get_env("PATH", environ);
 	if (!value)
 	{
