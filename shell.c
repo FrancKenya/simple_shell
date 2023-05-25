@@ -96,7 +96,9 @@ void exec_process(char *prompt, char *exe, char **env)
 	var = check_path(argvc[0], env);
 	flag = stat(var, &fileinfo);
 	if (flag == 0)
+	{
 		create_process(var, argvc, env);
+	}
 	else
 	{
 		null_command(exe, argvc);
