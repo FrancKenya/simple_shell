@@ -32,8 +32,9 @@ char *replace(char *str, char repl)
 	char *new, *dup_str;
 
 	if (!str || !repl)
+	{
 		return (NULL);
-
+	}
 	dup_str = _strdup(str);
 	free(str);
 	if (!dup_str)
