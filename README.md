@@ -1,5 +1,5 @@
 # ALX simple shell project
-> This repository contains source code for the simple shell project on ALX
+> This repository contains source code for the simple shell project on ALX.
 
 ## General requirement
 * Allowed editors: vi, vim, emacs.
