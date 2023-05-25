@@ -63,7 +63,7 @@ char *replace(char *str, char repl)
 /**
  * _strlen - count the len of a string
  * @str: The string we want to count its length
- * Return: An integer
+ * Return: An integer value
  */
 int _strlen(const char *str)
 {
