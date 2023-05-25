@@ -89,7 +89,9 @@ int is_space(char *str)
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		if (str[i] != ' ' && str[i] != '\t')
+		{
 			return (0);
+		}
 	}
 	return (1);
 }
