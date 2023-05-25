@@ -38,8 +38,9 @@ char *replace(char *str, char repl)
 	dup_str = _strdup(str);
 	free(str);
 	if (!dup_str)
+	{
 		return (NULL);
-
+	}
 	for (i = 0; dup_str[i] != '\0'; i++)
 		if (dup_str[i] == repl)
 		{
